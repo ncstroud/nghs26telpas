@@ -305,6 +305,7 @@ var d=null!=c&&c.hydratedSources||null,e=!1,f="",g=aj;null!==c&&void 0!==c&&(!0=
 function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmountComponentAtNode=function(a){if(!Vd(a))throw Error(m(40));return a._reactRootContainer?(yb(function(){Wd(null,null,a,!1,function(){a._reactRootContainer=null;a[Ja]=null})}),!0):!1};Q.unstable_batchedUpdates=Tf;Q.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!Vd(c))throw Error(m(200));if(null==a||void 0===a._reactInternals)throw Error(m(38));return Wd(a,b,c,!1,d)};Q.version="18.3.1-next-f1338f8080-20240426"});
 })();
 </script>
+<script>window.STUDIO_BUILD="version Nov 13, 11:24 AM";</script>
 <script>/* Google Apps Script bridge for TELPAS Practice Studio */
 (function () {
   // Everything is inlined in this file, so the page runtime must not re-download and re-parse itself.
@@ -2601,7 +2602,7 @@ textarea.input { min-height: 90px; resize: vertical; }
         <span style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:#c8102e;color:#ffffff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.02em">NG</span>
         <div style="display:grid;gap:2px">
           <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;line-height:1;color:#ffffff;text-transform:uppercase;letter-spacing:0.04em">TELPAS Practice Studio</div>
-          <div style="font-size:13px;font-weight:700;color:#b3b3b3;text-transform:uppercase;letter-spacing:0.14em">North Garland Raiders · Speaking &amp; Writing</div>
+          <div style="font-size:13px;font-weight:700;color:#b3b3b3;text-transform:uppercase;letter-spacing:0.14em">North Garland Raiders · Speaking &amp; Writing <span style="letter-spacing:0.04em;color:#8a8a8a">{{ buildTag }}</span></div>
         </div>
       </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
@@ -2887,6 +2888,13 @@ textarea.input { min-height: 90px; resize: vertical; }
                     </div>
                     <div style="padding:20px 18px;background:#f7f7f7;display:grid;gap:14px;align-content:start">
                       <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#555;min-height:20px">{{ scRecStatus }}</div>
+                      <sc-if value="{{ recOn }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;gap:4px;font-family:Arial,Helvetica,sans-serif">
+                          <div style="font-size:13px;font-weight:700;color:#333">Mic level — this bar should jump when you talk</div>
+                          <div style="height:12px;background:#dddddd;border-radius:999px;overflow:hidden"><div style="height:100%;background:#0e8a4f;transition:width .1s linear;width:{{ recLevel }}%"></div></div>
+                          <div style="font-size:12px;color:#555">{{ recMicLabel }}</div>
+                        </div>
+                      </sc-if>
                       <sc-if value="{{ recErrorSC }}">
                         <div style="background:#f9d6db;border:1px solid #eba3ad;border-radius:8px;padding:12px 14px;display:grid;gap:10px">
                           <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.45;color:#9e0b22;font-weight:700">{{ recErrorSC }}</div>
@@ -3351,6 +3359,13 @@ textarea.input { min-height: 90px; resize: vertical; }
                   <sc-if value="{{ isSpeaking }}" hint-placeholder-val="{{ true }}">
                     <div style="border-top:1px solid #ececec;padding-top:12px;display:grid;gap:8px;justify-items:start">
                       <div style="font-size:14px;font-weight:800;line-height:1.45;color:#9e0b22">{{ playBackNote }}</div>
+                      <sc-if value="{{ recOn }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;gap:4px;font-family:Arial,Helvetica,sans-serif;justify-self:stretch">
+                          <div style="font-size:13px;font-weight:700;color:#333">Mic level — this bar should jump when you talk</div>
+                          <div style="height:12px;background:#dddddd;border-radius:999px;overflow:hidden"><div style="height:100%;background:#0e8a4f;transition:width .1s linear;width:{{ recLevel }}%"></div></div>
+                          <div style="font-size:12px;color:#555">{{ recMicLabel }}</div>
+                        </div>
+                      </sc-if>
                       <sc-if value="{{ needsTab }}" hint-placeholder-val="{{ false }}">
                         <button class="btn btn-primary" onClick="{{ openTab }}" style="font-size:14px;white-space:nowrap">Open in a new tab to record</button>
                       </sc-if>
@@ -4708,7 +4723,7 @@ class Component extends DCLogic {
       delete s.form; delete s.roster; delete s.me; delete s.rosterMsg; delete s.lookupMsg;
       delete s.recRunning; delete s.recLeft; delete s.recError; delete s.playingRec; delete s.recStamp; delete s.recNeedsTab;
       delete s.chiming; delete s.chimed; delete s.scHintMsg;
-      delete s.ex; delete s.exDraft; delete s.exMsg; delete s.turnIn; delete s.copiedWork; delete s.linkTest; delete s.scoreFile; delete s.upMsg; delete s.resumeData; delete s.teacherPanel; delete s.isFull; delete s.speaking; delete s.dirTr; delete s.dirTrBusy; delete s.fullMsg; delete s.tr; delete s.trMsg; delete s.trBusy; delete s.pinDraft; delete s.pinMsg;
+      delete s.ex; delete s.exDraft; delete s.exMsg; delete s.turnIn; delete s.copiedWork; delete s.linkTest; delete s.scoreFile; delete s.upMsg; delete s.resumeData; delete s.recLevel; delete s.recMic; delete s.teacherPanel; delete s.isFull; delete s.speaking; delete s.dirTr; delete s.dirTrBusy; delete s.fullMsg; delete s.tr; delete s.trMsg; delete s.trBusy; delete s.pinDraft; delete s.pinMsg;
       localStorage.setItem(KEY, JSON.stringify(s));
     } catch (e) {}
   }
@@ -5094,6 +5109,38 @@ class Component extends DCLogic {
     else this.set({ scHintMsg: '' });
   }
 
+  // Live mic level while recording, so a silent microphone is obvious straight away.
+  startMeter(stream) {
+    this.recPeak = 0; this.meterOk = false;
+    const tr = stream.getAudioTracks()[0];
+    this.setState({ recLevel: 0, recMic: tr ? tr.label : '' });
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      const ac = this.meterAc = new AC();
+      if (ac.state === 'suspended') ac.resume();
+      const an = ac.createAnalyser(); an.fftSize = 1024;
+      ac.createMediaStreamSource(stream).connect(an);
+      const buf = new Uint8Array(an.fftSize);
+      this.meterT = setInterval(() => {
+        an.getByteTimeDomainData(buf);
+        let m = 0;
+        for (let i = 0; i < buf.length; i++) m = Math.max(m, Math.abs(buf[i] - 128));
+        if (ac.state === 'running') this.meterOk = true;
+        this.recPeak = Math.max(this.recPeak, m);
+        this.setState({ recLevel: Math.min(100, Math.round((m / 128) * 250)) });
+      }, 120);
+    } catch (e) {}
+  }
+
+  // Returns true when the meter ran and heard nothing at all.
+  stopMeter() {
+    clearInterval(this.meterT);
+    try { if (this.meterAc) this.meterAc.close(); } catch (e) {}
+    this.meterAc = null;
+    this.setState({ recLevel: 0 });
+    return !!this.meterOk && this.recPeak < 2;
+  }
+
   // Google's page frame blocks the microphone, so record in a small pop-up window
   // (a window of its own is allowed to ask for the mic) and hand the audio back.
   recordViaPopup(id, secs) {
@@ -5110,20 +5157,26 @@ class Component extends DCLogic {
       '#go{background:#c8102e;color:#fff}#st{background:#111;color:#fff}#t{font-size:40px;font-weight:700}#m{font-size:15px;line-height:1.45;color:#555}</style></head><body>' +
       '<div class="bar">TELPAS Studio · Record</div><div class="w"><div class="big">' + esc(label) + '</div>' +
       '<div id="m">Press Start. The first time, choose Allow when Chrome asks to use the microphone.</div>' +
+      '<div style="height:14px;background:#ddd;border-radius:999px;overflow:hidden"><div id="lv" style="height:100%;width:0;background:#0e8a4f"></div></div><div id="mic" style="font-size:12px;color:#555"></div>' +
       '<div id="t">' + secs + 's</div><div style="display:flex;gap:10px;flex-wrap:wrap"><button id="go">&#127908; Start</button><button id="st" style="display:none">&#9632; Stop</button></div></div>' +
       '<script>(function(){var id=' + JSON.stringify(id) + ',left=' + Number(secs) + ',mr=null,stream=null,timer=null,sent=false;' +
       'var $=function(x){return document.getElementById(x)};' +
-      'function done(u){if(sent)return;sent=true;try{window.opener.__telpasRecDone(id,u)}catch(e){}window.close();}' +
+      'function done(u){if(sent)return;sent=true;try{window.opener.__telpasRecDone(id,u);window.close();}catch(e){if(u){$("m").innerHTML="<b>The recording could not be sent back to the studio page.</b> Tell your teacher.";}else window.close();}}' +
       'window.__stop=function(){if(mr&&mr.state!=="inactive"){clearInterval(timer);$("m").textContent="Saving…";mr.stop();}else done(null);};' +
       'window.addEventListener("beforeunload",function(){if(!mr)done(null);});' +
       '$("st").onclick=window.__stop;' +
+      'var peak=0,mt=null;' +
       '$("go").onclick=function(){navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){stream=s;var ch=[];' +
+      'try{var tr=s.getAudioTracks()[0];$("mic").textContent=tr?"Using: "+tr.label:"";var ac=new (window.AudioContext||window.webkitAudioContext)();var an=ac.createAnalyser();an.fftSize=1024;ac.createMediaStreamSource(s).connect(an);var bf=new Uint8Array(1024);' +
+      'mt=setInterval(function(){an.getByteTimeDomainData(bf);var m=0;for(var i=0;i<bf.length;i++)m=Math.max(m,Math.abs(bf[i]-128));peak=Math.max(peak,m);$("lv").style.width=Math.min(100,Math.round(m/128*250))+"%";},120);}catch(e){peak=99;}' +
       'try{mr=new MediaRecorder(s)}catch(e){mr=new MediaRecorder(s,{mimeType:"audio/webm"})}' +
       'mr.ondataavailable=function(e){if(e.data&&e.data.size)ch.push(e.data)};' +
-      'mr.onstop=function(){stream.getTracks().forEach(function(t){t.stop()});var b=new Blob(ch,{type:mr.mimeType||"audio/webm"});var fr=new FileReader();fr.onload=function(){done(fr.result)};fr.readAsDataURL(b);};' +
+      'mr.onstop=function(){clearInterval(mt);stream.getTracks().forEach(function(t){t.stop()});' +
+      'if(peak<2){mr=null;left=' + Number(secs) + ';$("t").textContent=left+"s";$("go").style.display="";$("st").style.display="none";$("m").innerHTML="<b>No sound was picked up.</b> Check that the headset is plugged in and not muted. Click the time at the bottom-right of the Chromebook, the arrow next to the volume slider, and choose your headset under Input. Then press Start again.";return;}' +
+      'var b=new Blob(ch,{type:mr.mimeType||"audio/webm"});var fr=new FileReader();fr.onload=function(){done(fr.result)};fr.readAsDataURL(b);};' +
       'mr.start();$("go").style.display="none";$("st").style.display="";$("m").textContent="Recording — speak clearly. Press Stop when you finish.";' +
       'timer=setInterval(function(){left--;$("t").textContent=left+"s";try{window.opener.__telpasRecTick(left)}catch(e){}if(left<=0)window.__stop();},1000);' +
-      '}).catch(function(){$("m").innerHTML="<b>The microphone is blocked.</b> Click the camera/mic icon in this window\\u2019s address bar, choose Allow, then press Start again. Still stuck? Raise your hand.";});};' +
+      '}).catch(function(e){$("m").innerHTML="<b>The microphone is blocked ("+((e&&e.name)||"error")+").</b> Click the camera/mic icon in this window\\u2019s address bar, choose Allow, then press Start again. Still stuck? Raise your hand.";});};' +
       '})();<\/script></body></html>';
     w.document.open(); w.document.write(html); w.document.close();
     try { w.focus(); } catch (e) {}
@@ -5152,7 +5205,10 @@ class Component extends DCLogic {
   async startRec(id, secs) {
     if (this.state.recRunning) return;
     const isEx = id.indexOf('ex:') === 0;
-    if (id !== 'sc' && !isEx && (this.state.rec[id] || 0) >= 2) return;
+    if (id !== 'sc' && !isEx && (this.state.rec[id] || 0) >= 2) {
+      this.setState({ recError: 'Both recording attempts are used, so the mic button is off. Press “Reset recording attempts” below to record again.' });
+      return;
+    }
     if (window.GAS && window.GAS.inFrame) { this.recordViaPopup(id, secs); return; }
     if (!navigator.mediaDevices || !window.MediaRecorder) {
       this.setState({ recError: 'This browser cannot record audio. Try Chrome.' });
@@ -5168,7 +5224,9 @@ class Component extends DCLogic {
       this.setState({
         recError: framed
           ? 'Recording is blocked inside this preview window. Open the page in its own browser tab to record.'
-          : 'Microphone blocked. Click the mic icon in your address bar, choose Allow, then press record again.',
+          : (e && e.name === 'NotFoundError' ? 'This Chromebook does not see a microphone. Plug in the headset, then press record again.'
+            : (e && e.name === 'NotReadableError' ? 'Another app is using the microphone. Close other tabs that record, then press record again.'
+              : 'Microphone blocked (' + ((e && e.name) || 'error') + '). Click the lock or mic icon in the address bar, set Microphone to Allow, reload, then press record again. If there is no Allow option, the district has blocked the microphone for this site.')),
         recNeedsTab: framed
       });
       return;
@@ -5183,7 +5241,12 @@ class Component extends DCLogic {
     mr.ondataavailable = ev => { if (ev.data && ev.data.size) chunks.push(ev.data); };
     mr.onstop = () => {
       stream.getTracks().forEach(t => t.stop());
+      const silent = this.stopMeter();
       this.recordings = this.recordings || {};
+      if (silent) {
+        this.setState({ recRunning: null, recLeft: 0, recError: 'No sound was picked up, so this did not count. Check that the headset is plugged in and its mic switch is not on mute. Then click the time at the bottom-right of the Chromebook, click the arrow next to the volume slider, and choose your headset under Input. Mic used: ' + (this.state.recMic || 'unknown') + '.' });
+        return;
+      }
       if (this.recordings[id]) { try { URL.revokeObjectURL(this.recordings[id]); } catch (e) {} }
       const blob = chunks.length ? new Blob(chunks, { type: mr.mimeType || 'audio/webm' }) : null;
       this.recordings[id] = blob ? URL.createObjectURL(blob) : null;
@@ -5198,6 +5261,7 @@ class Component extends DCLogic {
       }), () => this.save());
     };
     this.mr = mr;
+    this.startMeter(stream);
     mr.start();
     this.setState({ recRunning: id, recLeft: secs, recError: '' });
   }
@@ -5789,6 +5853,10 @@ class Component extends DCLogic {
       toggleTeacherPanel: () => { this.setState({ teacherPanel: !st.teacherPanel }); try { window.scrollTo(0, 0); } catch (e) {} },
       teacherBtnBg: st.teacherPanel ? '#c8102e' : 'transparent',
       teacherBtnLabel: teacher ? 'Teacher ✓' : 'Teacher',
+      buildTag: (typeof window !== 'undefined' && window.STUDIO_BUILD) ? '· ' + window.STUDIO_BUILD : '',
+      recOn: !!st.recRunning && !this.recWin,
+      recLevel: st.recLevel || 0,
+      recMicLabel: st.recMic ? 'Using: ' + st.recMic : '',
       fullLabel: st.isFull ? 'Exit full screen' : 'Full screen',
       toggleFull: () => this.toggleFull(),
       goalText: st.goal || '', setGoal: e => this.set({ goal: e.target.value }),
